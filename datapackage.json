@@ -2,7 +2,7 @@
   "name": "self-employment-by-business-type-by-county",
   "datapackage_version": "1.0-beta.18",
   "title": "Self-Employment by Business Type by County",
-  "description": "Description of dataset",
+  "description": "Self-Employment by Business Type by County reports the size of the employed population of civilian workers aged 16 years and older, by business type, including self-employed, private, and government workers. In the Business Type column, individual Business Types are presented as percentages of the Total employed population for a given county.",
   "version": "1.0",
   "licenses": [{
     "url": "http://opendatacommons.org/licenses/pddl/",
@@ -74,7 +74,7 @@
   "ckan_extras": {
     "full_description": {
       "ckan_name": "Full Description",
-      "value": "Self-Employment by Business Type by County reports the total population of employed civilian workers aged 16 years and older. Business Types are presented as percentages of the entire employed population for a given county. 'Self-Employed, Incorporated' includes workers in their own incorporated businesses, 'Self-Employed, Not Incorporated' includes workers in their own non-incorporated businesses and unpaid family workers, 'Government' includes local, state, and federal government workers, 'Private, Profit' includes employees of for-profit private companies, 'Private, Not-for-profit' includes both wage and salary employees of not-for-profit private companies. These data originate from the American Community Survey (ACS) 5-Year estimates, table S2406.",
+      "value": "Self-Employment by Business Type by County reports the total population of employed civilian workers aged 16 years and older. In the Business Type column, individual Business Types are presented as percentages of the Total employed population for a given county. 'Self-Employed, Incorporated' includes workers in their own incorporated businesses, 'Self-Employed, Not Incorporated' includes workers in their own non-incorporated businesses and unpaid family workers, 'Government' includes local, state, and federal government workers, 'Private, Profit' includes employees of for-profit private companies, 'Private, Not-for-profit' includes both wage and salary employees of not-for-profit private companies. These data originate from the American Community Survey (ACS) 5-Year estimates, table S2406.",
       "type": "string"
     },
     "suppression": {
