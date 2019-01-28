@@ -15,13 +15,13 @@
     "web": ""
   }],
   "author":[{
-    "name": "Jenna Daly",
-    "email": "jdaly@ctdata.org",
+    "name": "Connecticut Data Collaborative",
+    "email": "info@ctdata.org",
     "web": "http://ctdata.org"
   }],
   "contributor": [],
   "resources": [{
-    "path": "data/self-employment-business-county.csv",
+    "path": "data/self-employment-business-county-2017.csv",
     "format": "csv",
     "schema": {
       "fields": [{
@@ -70,7 +70,7 @@
       }
     }
   ],
-  "last_modified": "03/06/2018",
+  "last_modified": "01/28/2019",
   "ckan_extras": {
     "full_description": {
       "ckan_name": "Full Description",
@@ -101,7 +101,7 @@
       "ckan_name": "Socrata Dataset Name",
       "value": "",
       "type": "string"
-    }, 
+    },
     "domain": {
       "ckan_name": "Domain",
       "value": "Economy",
@@ -135,12 +135,12 @@
     },
     "years_in_catalog": {
       "ckan_name": "Years in Catalog",
-      "value": ["2006-2010", "2007-2011", "2008-2012", "2009-2013", "2010-2014", "2011-2015", "2012-2016"],
+      "value": ["2006-2010", "2007-2011", "2008-2012", "2009-2013", "2010-2014", "2011-2015", "2012-2016", "2013-2017"],
       "type": "array"
     },
     "latest_year": {
       "ckan_name": "Latest Year Available",
-      "value": "2012-2016",
+      "value": "2013-2017",
       "type": "string"
     },
     "disabled_views": {
@@ -160,18 +160,18 @@
       "ckan_name": "Expected Number of Unique Geographies",
       "value": 9,
       "type": "string"
-    },     
-    "default": {      
+    },
+    "default": {
       "ckan_name": "Default",
       "value": {
         "County": "Connecticut",
-        "Year": ["2012-2016"],
+        "Year": ["2013-2017"],
         "Business Type": ["Total", "Self-Employed, Incorporated", "Self-Employed, Not Incorporated"],
-        "Variable": "Employment", 
+        "Variable": "Employment",
         "Measure Type": "Percent"
       },
       "type": "object"
-    } 
+    }
   },
   "spot_checks": [
     {
@@ -187,8 +187,8 @@
         "type": "$match",
         "number type": "int",
         "value": 59578
-      } 
-    }, 
+      }
+    },
     {
       "type": "$lookup",
       "filter": {
@@ -202,7 +202,7 @@
         "type": "$match",
         "number type": "float",
         "value": 3.5
-      } 
+      }
     },
     {
       "type": "$lookup",
@@ -217,7 +217,7 @@
         "type": "$match",
         "number type": "float",
         "value": 0.3
-      } 
+      }
     },
     {
       "type": "$lookup",
@@ -232,23 +232,23 @@
         "type": "$match",
         "number type": "float",
         "value": 16.1
-      } 
+      }
     }
   ],
   "dimension_groups": [
      {
-       "Measure Type": ["Number"], 
+       "Measure Type": ["Number"],
        "Business Type": ["Total"],
-       "Variable": ["Employment", "Margins of Error"]     
-     }, 
+       "Variable": ["Employment", "Margins of Error"]
+     },
      {
-       "Measure Type": ["Percent"], 
+       "Measure Type": ["Percent"],
        "Business Type": ["Self-Employed, Incorporated",
                          "Self-Employed, Not Incorporated",
                          "Government",
                          "Private, Profit",
                          "Private, Not-for-profit"],
-       "Variable": ["Employment", "Margins of Error"]     
+       "Variable": ["Employment", "Margins of Error"]
      }
   ]
 }

@@ -23,7 +23,7 @@ path_to_raw <- (paste0(getwd(), "/", raw_location))
 options(scipen=999)
 acsdata <- getACSData(
     getCTGeos("town"),
-    yearList = 2010:2016,
+    yearList = 2010:2017,
     table = "S2406"
 )
 
@@ -130,7 +130,7 @@ business_type_final <- business_type_fips %>%
     
 write.table(
     business_type_final,
-    file.path("data", "self-employment-business-county.csv"),
+    file.path("data", "self-employment-business-county-2017.csv"),
     sep = ",",
     row.names = F,
     col.names = T,
