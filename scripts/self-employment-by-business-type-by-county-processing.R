@@ -23,7 +23,7 @@ path_to_raw <- (paste0(getwd(), "/", raw_location))
 options(scipen=999)
 acsdata <- getACSData(
     getCTGeos("town"),
-    yearList = 2010:2017,
+    yearList = 2010:2018,
     table = "S2406"
 )
 
@@ -49,12 +49,12 @@ for (data in acsdata) {
         estimate(self_not_own)
     )
     
-    names(estimates)[names(estimates) == "HC01_EST_VC01.Total; Estimate; Civilian employed population 16 years and over"] <- "Total"                                                                    
-    names(estimates)[names(estimates) == "HC02_EST_VC01.Employee of private company workers; Estimate; Civilian employed population 16 years and over"] <- "Private, Profit"                                             
-    names(estimates)[names(estimates) == "HC03_EST_VC01.Self-employed in own incorporated business workers; Estimate; Civilian employed population 16 years and over"] <- "Self-Employed, Incorporated"                              
-    names(estimates)[names(estimates) == "HC04_EST_VC01.Private not-for-profit wage and salary workers; Estimate; Civilian employed population 16 years and over"] <- "Private, Not-for-profit"                                  
-    names(estimates)[names(estimates) == "HC05_EST_VC01.Local, state, and federal government workers; Estimate; Civilian employed population 16 years and over"] <- "Government"                                    
-    names(estimates)[names(estimates) == "HC06_EST_VC01.Self-employed in own not incorporated business workers and unpaid family workers; Estimate; Civilian employed population 16 years and over"] <- "Self-Employed, Not Incorporated"
+    names(estimates)[grep("(.*Total.*Estimate|.*Estimate.*Total).*Civilian employed population 16 years and over$", names(estimates))] <- "Total"                                                                    
+    names(estimates)[grep("(.*Employee of private company workers.*Estimate|.*Estimate.*Employee of private company workers).*Civilian employed population 16 years and over$", names(estimates))] <- "Private, Profit"                                             
+    names(estimates)[grep("(.*Self-employed in own incorporated business workers.*Estimate|.*Estimate.*Self-employed in own incorporated business workers).*Civilian employed population 16 years and over$", names(estimates))] <- "Self-Employed, Incorporated"                              
+    names(estimates)[grep("(.*Private not-for-profit wage and salary workers.*Estimate|.*Estimate.*Private not-for-profit wage and salary workers).*Civilian employed population 16 years and over$", names(estimates))] <- "Private, Not-for-profit"                                  
+    names(estimates)[grep("(.*Local, state, and federal government workers.*Estimate|.*Estimate.*Local, state, and federal government workers).*Civilian employed population 16 years and over$", names(estimates))] <- "Government"                                    
+    names(estimates)[grep("(.*Self-employed in own not incorporated business workers and unpaid family workers.*Estimate|.*Estimate.*Self-employed in own not incorporated business workers and unpaid family workers).*Civilian employed population 16 years and over$", names(estimates))] <- "Self-Employed, Not Incorporated"
     
     estimates <- melt(
         estimates,
@@ -76,12 +76,12 @@ for (data in acsdata) {
         standard.error(self_not_own) * 1.645
     )
     
-    names(moes)[names(moes) == "HC01_EST_VC01.Total; Estimate; Civilian employed population 16 years and over"] <- "Total"                                                                    
-    names(moes)[names(moes) == "HC02_EST_VC01.Employee of private company workers; Estimate; Civilian employed population 16 years and over"] <- "Private, Profit"                                             
-    names(moes)[names(moes) == "HC03_EST_VC01.Self-employed in own incorporated business workers; Estimate; Civilian employed population 16 years and over"] <- "Self-Employed, Incorporated"                              
-    names(moes)[names(moes) == "HC04_EST_VC01.Private not-for-profit wage and salary workers; Estimate; Civilian employed population 16 years and over"] <- "Private, Not-for-profit"                                  
-    names(moes)[names(moes) == "HC05_EST_VC01.Local, state, and federal government workers; Estimate; Civilian employed population 16 years and over"] <- "Government"                                    
-    names(moes)[names(moes) == "HC06_EST_VC01.Self-employed in own not incorporated business workers and unpaid family workers; Estimate; Civilian employed population 16 years and over"] <- "Self-Employed, Not Incorporated"
+    names(moes)[grep("(.*Total.*Estimate|.*Estimate.*Total).*Civilian employed population 16 years and over$", names(moes))] <- "Total"                                                                    
+    names(moes)[grep("(.*Employee of private company workers.*Estimate|.*Estimate.*Employee of private company workers).*Civilian employed population 16 years and over$", names(moes))] <- "Private, Profit"                                             
+    names(moes)[grep("(.*Self-employed in own incorporated business workers.*Estimate|.*Estimate.*Self-employed in own incorporated business workers).*Civilian employed population 16 years and over$", names(moes))] <- "Self-Employed, Incorporated"                              
+    names(moes)[grep("(.*Private not-for-profit wage and salary workers.*Estimate|.*Estimate.*Private not-for-profit wage and salary workers).*Civilian employed population 16 years and over$", names(moes))] <- "Private, Not-for-profit"                                  
+    names(moes)[grep("(.*Local, state, and federal government workers.*Estimate|.*Estimate.*Local, state, and federal government workers).*Civilian employed population 16 years and over$", names(moes))] <- "Government"                                    
+    names(moes)[grep("(.*Self-employed in own not incorporated business workers and unpaid family workers.*Estimate|.*Estimate.*Self-employed in own not incorporated business workers and unpaid family workers).*Civilian employed population 16 years and over$", names(moes))] <- "Self-Employed, Not Incorporated"
     
     moes <- melt(
         moes,
@@ -130,7 +130,7 @@ business_type_final <- business_type_fips %>%
     
 write.table(
     business_type_final,
-    file.path("data", "self-employment-business-county-2017.csv"),
+    file.path("data", "self-employment-business-county-2018.csv"),
     sep = ",",
     row.names = F,
     col.names = T,
